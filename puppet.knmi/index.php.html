@@ -1,0 +1,660 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="ltr" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en"><head>
+
+	
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="keywords" content="Puppet,Puppet">
+<link rel="shortcut icon" href="http://demurgatroid.net/favicon.ico">
+<link title="Creative Commons" type="application/rdf+xml" href="http://demurgatroid.net/wiki/index.php?title=Puppet&amp;action=creativecommons" rel="meta">
+<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html">
+		<title>Puppet - Demurgatroid.net Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "/wiki/skins/monobook/main.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="index.php_files/commonPrint.css">
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/wiki/skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/wiki/skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/wiki/skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/wiki/skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/wiki/skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '/wiki/skins';</script>
+		<script type="text/javascript" src="index.php_files/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="index.php_files/index.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/wiki/index.php?title=MediaWiki:Common.css&action=raw&ctype=text/css&smaxage=18000";
+@import "/wiki/index.php?title=MediaWiki:Monobook.css&action=raw&ctype=text/css&smaxage=18000";
+@import "/wiki/index.php?title=-&action=raw&gen=css&maxage=18000";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head><body class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Puppet</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Demurgatroid.net Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<table id="toc" class="toc" summary="Contents"><tbody><tr><td><div id="toctitle"><h2>Contents</h2> <span class="toctoggle">[<a href="javascript:toggleToc()" class="internal" id="togglelink">hide</a>]</span></div>
+<ul>
+<li class="toclevel-1"><a href="#Notes"><span class="tocnumber">1</span> <span class="toctext">Notes</span></a></li>
+<li class="toclevel-1"><a href="#Installation_.28Puppetmaster_and_Client.29"><span class="tocnumber">2</span> <span class="toctext">Installation (Puppetmaster and Client)</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Installing_from_source."><span class="tocnumber">2.1</span> <span class="toctext">Installing from source.</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Puppetmaster_Setup"><span class="tocnumber">3</span> <span class="toctext">Puppetmaster Setup</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Puppet_Environments"><span class="tocnumber">3.1</span> <span class="toctext">Puppet Environments</span></a></li>
+<li class="toclevel-2"><a href="#Puppet_Fileserver"><span class="tocnumber">3.2</span> <span class="toctext">Puppet Fileserver</span></a></li>
+<li class="toclevel-2"><a href="#Puppetmaster_Is_Client_of_Another_Puppetmaster"><span class="tocnumber">3.3</span> <span class="toctext">Puppetmaster Is Client of Another Puppetmaster</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Client_Setup"><span class="tocnumber">4</span> <span class="toctext">Client Setup</span></a></li>
+<li class="toclevel-1"><a href="#Modules.2C_Classes.2C_.26_Manifests"><span class="tocnumber">5</span> <span class="toctext">Modules, Classes, &amp; Manifests</span></a></li>
+<li class="toclevel-1"><a href="#Howto"><span class="tocnumber">6</span> <span class="toctext">Howto</span></a>
+<ul>
+<li class="toclevel-2"><a href="#You_can_use_a_base_node_to_apply_to_all_hosts."><span class="tocnumber">6.1</span> <span class="toctext">You can use a base node to apply to all hosts.</span></a></li>
+<li class="toclevel-2"><a href="#Virtual_Resources"><span class="tocnumber">6.2</span> <span class="toctext">Virtual Resources</span></a>
+<ul>
+<li class="toclevel-3"><a href="#Here.27s_a_similar_example_with_users"><span class="tocnumber">6.2.1</span> <span class="toctext">Here's a similar example with users</span></a></li>
+<li class="toclevel-3"><a href="#conv_passwd"><span class="tocnumber">6.2.2</span> <span class="toctext">conv_passwd</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2"><a href="#Distribute_Files"><span class="tocnumber">6.3</span> <span class="toctext">Distribute Files</span></a></li>
+<li class="toclevel-2"><a href="#Custom_Facts"><span class="tocnumber">6.4</span> <span class="toctext">Custom Facts</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#section"><span class="tocnumber">7</span> <span class="toctext">section</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Tidy_.28Delete.29_Files"><span class="tocnumber">7.1</span> <span class="toctext">Tidy (Delete) Files</span></a></li>
+<li class="toclevel-2"><a href="#Change_Client_Poll_Interval"><span class="tocnumber">7.2</span> <span class="toctext">Change Client Poll Interval</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Directory_Structure"><span class="tocnumber">8</span> <span class="toctext">Directory Structure</span></a></li>
+<li class="toclevel-1"><a href="#Note"><span class="tocnumber">9</span> <span class="toctext">Note</span></a></li>
+<li class="toclevel-1"><a href="#Troubleshooting"><span class="tocnumber">10</span> <span class="toctext">Troubleshooting</span></a>
+<ul>
+<li class="toclevel-2"><a href="#General"><span class="tocnumber">10.1</span> <span class="toctext">General</span></a></li>
+<li class="toclevel-2"><a href="#SSL_Certificate_Problems"><span class="tocnumber">10.2</span> <span class="toctext">SSL Certificate Problems</span></a></li>
+<li class="toclevel-2"><a href="#Specific_Errors"><span class="tocnumber">10.3</span> <span class="toctext">Specific Errors</span></a>
+<ul>
+<li class="toclevel-3"><a href="#Facter_Incorrect_processorcount_Fact"><span class="tocnumber">10.3.1</span> <span class="toctext">Facter Incorrect processorcount Fact</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Links"><span class="tocnumber">11</span> <span class="toctext">Links</span></a></li>
+</ul>
+</td></tr></tbody></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://demurgatroid.net/wiki/index.php?title=Puppet&amp;action=edit&amp;section=1" title="Edit section: Notes">edit</a>]</div><a name="Notes"></a><h1>Notes</h1>
+<p>OS: CentOS 5.3, CentOS 5.4
+Puppet Version: 0.25.1
+</p>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://demurgatroid.net/wiki/index.php?title=Puppet&amp;action=edit&amp;section=2" title="Edit section: Installation (Puppetmaster and Client)">edit</a>]</div><a name="Installation_.28Puppetmaster_and_Client.29"></a><h1>Installation (Puppetmaster and Client)</h1>
+<p>Fedora has Puppet in the standard repository, for RHEL/CentOS it is availiable in the <a href="http://fedoraproject.org/wiki/EPEL" class="external text" title="http://fedoraproject.org/wiki/EPEL" rel="nofollow">EPEL</a> repository
+</p><p><br>
+</p>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://demurgatroid.net/wiki/index.php?title=Puppet&amp;action=edit&amp;section=3" title="Edit section: Installing from source.">edit</a>]</div><a name="Installing_from_source."></a><h2>Installing from source.</h2>
+<p>1) Install Ruby
+</p><p>2) Download Puppet and Facter from <a href="http://reductivelabs.com/trac/puppet/wiki/DownloadingPuppet" class="external free" title="http://reductivelabs.com/trac/puppet/wiki/DownloadingPuppet" rel="nofollow">http://reductivelabs.com/trac/puppet/wiki/DownloadingPuppet</a>
+</p><p><br>
+3) Install Facter
+</p><p>Download and expand the tarball, and run the installation script
+</p>
+<pre>facter-1.5.6/install.rb
+</pre>
+<p>4) Install Puppet
+</p><p>Download and expand the tarball, and run the installation script
+</p>
+<pre>puppet-0.25.0/install.rb
+</pre>
+<p>5) If using Mongrel instead of WEBrick, you must install it
+</p>
+<pre>gem install mongrel
+</pre>
+<p><br>
+</p>
+<dl><dt> Here's a script I use install Puppet from source
+</dt></dl>
+<pre>#!/bin/bash
+# install-puppet.sh
+
+# Install Puppet; this script was written for CentOS 5.3 and requires enabling the EPEL repository to install software required by Puppet.
+# This repo can be disabled afterwards.  This script creates '/var/log/puppet' and '/var/run/puppet', default Puppet installation
+# does not use these directories.
+
+# To install a Puppet client, simply run this script and further configuration can be pulled from the master
+# To install a Puppet master, run this script with the "-m" option.  Configuration is required.
+
+SRC_DIR="/usr/local/src"
+FACTER_URL="http://reductivelabs.com/downloads/facter/facter-1.5.7.tar.gz"
+PUPPET_URL="http://reductivelabs.com/downloads/puppet/puppet-0.25.0.tar.gz"
+YUM_INSTALL="ruby ruby-augeas ruby-shadow ruby-rdoc rubygems ruby-devel ruby-ldap gcc make"
+FACTER_TARBALL=`echo "$FACTER_URL" | awk -F/ '{print $NF}'` # tarball filename
+PUPPET_TARBALL=`echo "$PUPPET_URL" | awk -F/ '{print $NF}'`
+FACTER_SRC=`echo $FACTER_TARBALL | awk -F.tar '{print $1}'` # directory after tarball is expanded
+PUPPET_SRC=`echo $PUPPET_TARBALL | awk -F.tar '{print $1}'`
+
+USAGE ()
+{
+echo -e "Usage: $0 [OPTIONS]...
+	-h	   display usage
+	-m	   install as Puppetmaster\n"
+exit
+}
+
+while getopts ":mh" options; do
+	case $options in
+		m ) MASTER="true"&nbsp;;;
+		* ) USAGE
+	esac
+done
+
+# Install Requisites from EPEL
+rpm -Uvh http://download.fedora.redhat.com/pub/epel/5/i386/epel-release-5-3.noarch.rpm
+yum -qy install `echo "$YUM_INSTALL"`
+
+cd $SRC_DIR
+wget $FACTER_URL
+wget $PUPPET_URL
+
+tar -xzf $FACTER_TARBALL
+tar -xzf $PUPPET_TARBALL
+
+# Install Facter
+cd ${SRC_DIR}/${FACTER_SRC}
+ruby install.rb
+
+# Install Puppet
+cd ${SRC_DIR}/${PUPPET_SRC}
+ruby install.rb
+
+# Set up init script
+cp ${SRC_DIR}/${PUPPET_SRC}/conf/redhat/client.init /etc/init.d/puppet
+chmod +x /etc/init.d/puppet
+/sbin/chkconfig --add puppet
+/sbin/chkconfig --level 3 puppet on
+
+# Set up/remove other directories needed
+mkdir /var/log/puppet /var/run/puppet
+rmdir /var/puppet/run /var/puppet/log
+
+# Install as Puppetmaster
+if
+    [ "$MASTER" = true ]
+then
+    /usr/sbin/groupadd puppet
+    /usr/sbin/useradd -g puppet -s /sbin/nologin puppet
+    cp ${SRC_DIR}/${PUPPET_SRC}/conf/redhat/server.init /etc/init.d/puppetmaster
+    chmod +x /etc/init.d/puppetmaster
+    /sbin/chkconfig --add puppetmaster
+    /sbin/chkconfig --level 3 puppetmaster on
+    gem install mongrel
+fi
+</pre>
+<p><br>
+</p>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://demurgatroid.net/wiki/index.php?title=Puppet&amp;action=edit&amp;section=4" title="Edit section: Puppetmaster Setup">edit</a>]</div><a name="Puppetmaster_Setup"></a><h1>Puppetmaster Setup</h1>
+<p>1) Copy the Puppetmaster init script to <tt>/etc/init.d/</tt> from <tt>/usr/local/src/puppet-0.25.0/conf/redhat/client.init</tt>
+</p><p><br>
+A Puppetmaster server acts as an Certificate Authority allowing use of 
+TLS in the network without the costs associated with commercial 
+certificate signing.
+</p><p><br>
+Puppetmasterd will automatically be started with <tt>--server-type=mongrel</tt> if multiple ports are specified.
+</p>
+<dl><dt> <tt>/etc/sysconfig/puppetmaster</tt>
+</dt></dl>
+<pre>PUPPETMASTER_MANIFEST=/etc/puppet/manifests/site.pp
+PUPPETMASTER_LOG=/var/log/puppet/puppetmaster.log
+PUPPETMASTER_PORTS=( 18140 18141 18142 18143 18144 )
+</pre>
+<p><br>
+</p>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://demurgatroid.net/wiki/index.php?title=Puppet&amp;action=edit&amp;section=5" title="Edit section: Puppet Environments">edit</a>]</div><a name="Puppet_Environments"></a><h2>Puppet Environments</h2>
+<p>Environments in Puppet are useful in many different ways.  Here I 
+will focus on using envrionments for module development but the concept 
+is the same for many cases.  I'm not sure if this is the best or only 
+way to do things.  Take extra care if <tt>puppet.conf</tt> is maintained by Puppet.
+</p><p>Make some needed directories
+</p>
+<pre>mkdir -p /etc/puppet/{common,development}/modules
+</pre>
+<p>Copy your current modules into the 'common' module directory
+</p>
+<pre>cp -R /etc/puppet/modules/* /etc/puppet/common/modules
+</pre>
+<p><br>
+</p><p><br>
+</p><p><br>
+</p>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://demurgatroid.net/wiki/index.php?title=Puppet&amp;action=edit&amp;section=6" title="Edit section: Puppet Fileserver">edit</a>]</div><a name="Puppet_Fileserver"></a><h2>Puppet Fileserver</h2>
+<p>Puppet has it's own fileserver
+</p><p>Use URLS that start with <tt>puppet://</tt>
+</p><p><br>
+</p>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://demurgatroid.net/wiki/index.php?title=Puppet&amp;action=edit&amp;section=7" title="Edit section: Puppetmaster Is Client of Another Puppetmaster">edit</a>]</div><a name="Puppetmaster_Is_Client_of_Another_Puppetmaster"></a><h2>Puppetmaster Is Client of Another Puppetmaster</h2>
+<p>This can be confusing, and I'm sure there are multiple ways to accomplish this; this is the simplest method I've [<a href="http://www.mail-archive.com/puppet-users@googlegroups.com/msg06088.html%7Cfound" class="external autonumber" title="http://www.mail-archive.com/puppet-users@googlegroups.com/msg06088.html|found" rel="nofollow">[1]</a>].  The essence of this is to use two SSL directories, keeping your puppetmaster SSL files separate from your client SSL files.
+</p><p>In this example, I have a production puppetmaster and a 
+development puppetmaster which is a client of the production 
+puppetmaster.
+</p><p><b>On the development Puppetmaster:</b>
+</p>
+<pre>mkdir /etc/puppet/client
+</pre>
+<p>Edit <tt>/etc/puppet/puppet.conf</tt> and add the following under the <tt>[puppetd]</tt> section:
+</p>
+<pre>ssldir = /etc/puppet/client/ssl
+</pre>
+<p>Depending on your situation, you may need the following setting also
+</p>
+<pre>factsync = false
+</pre>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://demurgatroid.net/wiki/index.php?title=Puppet&amp;action=edit&amp;section=8" title="Edit section: Client Setup">edit</a>]</div><a name="Client_Setup"></a><h1>Client Setup</h1>
+<p>1) Copy the Puppet client init script to <tt>/etc/init.d</tt> from <tt>/usr/local/src/puppet-0.25.0/conf/redhat/server.init</tt>
+</p><p>Puppet uses TLS, the first time you start the Puppet client, it 
+will generate a self-signed certificate, connect to the Puppetmaster and
+ request the certificate be signed.  So, the first time you start the 
+Puppet client, don't use the init script, start it like this:
+</p>
+<pre>puppetd --server puppet --verbose --waitforcert 60
+</pre>
+<p>Then, on the Puppetmaster, you can list certs waiting to be signed
+</p>
+<pre>puppetca --list
+</pre>
+<p>And you can sign a certificate from a specific host
+</p>
+<pre>puppetca --sign host1.example.com
+</pre>
+<p>Note: The Puppet client must run as the root user
+</p><p><br>
+</p>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://demurgatroid.net/wiki/index.php?title=Puppet&amp;action=edit&amp;section=9" title="Edit section: Modules, Classes, &amp; Manifests">edit</a>]</div><a name="Modules.2C_Classes.2C_.26_Manifests"></a><h1>Modules, Classes, &amp; Manifests</h1>
+<dl><dt> This not verified
+</dt></dl>
+<p>When defining a class within a module, use the form 'modulename::classname'.  Then, when including it elsewhere, use:
+include modulename::classname
+</p><p>This is not required, but will help you know when including a 
+class that that class is part of a specific module.  That syntax is also
+ used for nested classes.
+</p>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://demurgatroid.net/wiki/index.php?title=Puppet&amp;action=edit&amp;section=10" title="Edit section: Howto">edit</a>]</div><a name="Howto"></a><h1>Howto</h1>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://demurgatroid.net/wiki/index.php?title=Puppet&amp;action=edit&amp;section=11" title="Edit section: You can use a base node to apply to all hosts.">edit</a>]</div><a name="You_can_use_a_base_node_to_apply_to_all_hosts."></a><h2>You can use a base node to apply to all hosts.</h2>
+<pre>node basenode {
+}
+</pre>
+<ul><li> Note: Inheriting nodes only works if you do not use variables in classes
+</li></ul>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://demurgatroid.net/wiki/index.php?title=Puppet&amp;action=edit&amp;section=12" title="Edit section: Virtual Resources">edit</a>]</div><a name="Virtual_Resources"></a><h2>Virtual Resources</h2>
+<p>You can set up resources as 'virtual resources' that may be 
+'realized' in a class or module.  This example shows software packages 
+defined as virtual resources in one manifest, and those virtual 
+resources are realized in another.  Virtual resources may be used in 
+multiple modules and so manifests defining them may be put into <tt>/etc/puppet/manifests/classes/</tt>.
+</p>
+<dl><dt> <tt>/etc/puppet/manifests/classes/virtual_packages.pp</tt>
+</dt></dl>
+<pre>class virtual_packages {
+    @package { [
+        "at",
+        "atd",
+        "cups, ]: ensure =&gt; "purged"
+    }
+}
+
+</pre>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://demurgatroid.net/wiki/index.php?title=Puppet&amp;action=edit&amp;section=13" title="Edit section: Here's a similar example with users">edit</a>]</div><a name="Here.27s_a_similar_example_with_users"></a><h3>Here's a similar example with users</h3>
+<dl><dt> <tt>/etc/puppet/manifests/classes/virtual_users.pp</tt>
+</dt></dl>
+<pre>class virtual_users {
+    @user { "jamie":
+       ensure     =&gt; "present",
+       uid        =&gt; "502",
+       groups	  =&gt; "admin",
+       comment    =&gt; "Jamie",
+       home       =&gt; "/home/jamie",
+       shell      =&gt; "/bin/bash",
+       managehome =&gt; "true,
+       password   =&gt; '$1$JNnID/$wTvXHIlJ.B5UDuVUXcvCm/',
+    }
+}
+</pre>
+<p><br>
+</p>
+<dl><dt> <tt>/etc/puppet/modules/user/manifests/init.pp
+</tt></dt></dl>
+<pre><tt>class user::admins inherits user::virtual {
+   realize(
+       Group["admin"],
+       User["jamie"],
+   )
+}
+</tt></pre>
+<p><tt><br>
+</tt></p>
+<div class="editsection" style="float: right; margin-left: 5px;"><tt>[<a href="http://demurgatroid.net/wiki/index.php?title=Puppet&amp;action=edit&amp;section=14" title="Edit section: conv_passwd">edit</a>]</tt></div><tt><a name="conv_passwd"></a></tt><h3><tt>conv_passwd</tt></h3>
+<p><tt>This is a ruby script from <a href="http://reductivelabs.com/trac/puppet/wiki/PuppetBestPractice" class="external text" title="http://reductivelabs.com/trac/puppet/wiki/PuppetBestPractice" rel="nofollow">here</a> you can use to convert a standard passwd file into a file containing all potential  users.
+</tt></p><p><tt>Usage:
+</tt></p>
+<pre><tt>conv_passwd /etc/passwd &gt; /etc/puppet/modules/user/manifests/virtual.pp
+</tt></pre>
+<pre><tt>#!/usr/bin/ruby
+#
+# This simple program reads in a passwd file and converts it to a
+# virt_all_users file
+
+puts &lt;&lt;HEADER
+# Fully sponsored accounts of interest as virtual resources
+
+class user::virtual {
+HEADER
+
+ARGF.each do |line|
+   sunetid, tmp, uid, gid, name, homedir, shell = line.split(/\:/)
+   puts "    @user { \"" + sunetid + "\":"
+   puts "        ensure  =&gt; \"present\","
+   puts "        uid     =&gt; \"" + uid + "\","
+   puts "        gid     =&gt; \"" + gid + "\","
+   puts "        comment =&gt; \"" + name + "\","
+   puts "        home    =&gt; \"" + homedir + "\","
+   puts "        shell   =&gt; \"" + shell.chomp + "\","
+   puts "    }"
+   puts ""
+end
+
+puts &lt;&lt;FOOTER
+}
+FOOTER
+</tt></pre>
+<p><tt><br>
+</tt></p>
+<ul><li><tt> The ruby-shadow package must be installed; it is not 
+available in CentOS repositories.  You can can download an SRPM built 
+for Fedora 10 <a href="http://download.fedora.redhat.com/pub/fedora/linux/releases/10/Everything/source/SRPMS/" class="external text" title="http://download.fedora.redhat.com/pub/fedora/linux/releases/10/Everything/source/SRPMS/" rel="nofollow">here</a> and rebuild it with &lt;tt&gt;rpmbuild --rebuild</tt>
+</li><li> Note that the password must be single quoted due to the presence of the '$' character
+</li></ul>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://demurgatroid.net/wiki/index.php?title=Puppet&amp;action=edit&amp;section=15" title="Edit section: Distribute Files">edit</a>]</div><a name="Distribute_Files"></a><h2>Distribute Files</h2>
+<p><b>Simple File Distributuion</b>
+</p>
+<pre>file { "/etc/sudoers":
+    owner   =&gt; root,
+    group   =&gt; root,
+    mode    =&gt; 440,
+    source  =&gt; "puppet:///sudo/sudoers",
+}
+</pre>
+<p><br>
+<b>Directory Distribution</b>
+</p><p>This will replace a directory wholesale, if this is not desired, remove <tt>purge =&gt; true</tt>
+</p>
+<pre>file { "/etc/yum.repos.d/":
+    ensure  =&gt; directory,
+    recurse =&gt; true,
+    purge   =&gt; true,
+    backup  =&gt; false,
+    force   =&gt; true,
+    owner   =&gt; 'root',
+    group   =&gt; 'root',
+    mode    =&gt; '755',
+    source  =&gt; 'puppet:///modules/yum/yum.repos.d',
+}
+</pre>
+<p><br>
+<b>Source Dependent on Variable</b>
+</p><p>This example shows a different 'yum.repos.d' directory distributed depending on how the <tt>$fqdn</tt> variable resolves.  If the variable resolves to an unspecified host, nothing is distributed.
+</p>
+<pre>file { "/etc/yum.repos.d/":
+    ensure  =&gt; directory,
+    recurse =&gt; true,
+    purge   =&gt; true,
+    backup  =&gt; false,
+    force   =&gt; true,
+    owner   =&gt; 'root',
+    group   =&gt; 'root',
+    mode    =&gt; '755',
+   source =&gt; $fqdn&nbsp;? {
+       'host01.example.com' =&gt; "puppet:///modules/yum/yum.repos.d.host01",
+       'host02.example.com' =&gt; "puppet:///modules/yum/yum.repos.d.host02",
+       default              =&gt; undef,
+   }
+}
+</pre>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://demurgatroid.net/wiki/index.php?title=Puppet&amp;action=edit&amp;section=16" title="Edit section: Custom Facts">edit</a>]</div><a name="Custom_Facts"></a><h2>Custom Facts</h2>
+<p>Custom facts are done 2 ways
+</p><p>1) Creating environment variables that begin with <tt>FACTER</tt>, ie 
+</p>
+<pre>export FACTER_department='Accounting Department'
+</pre>
+<pre>$ facter department
+Accounting Department
+</pre>
+<p>2) Or if you need something more than that, create Ruby scripts in <tt>/var/puppet/lib/facter</tt> that output the value of the fact and distribute them via <i>pluginsync</i>.
+</p><p>To see your custom fact using <tt>facter</tt> add this environment variable on each host, edit the path if needed for your setup.
+</p>
+<pre>export FACTERLIB='/var/puppet/lib/facter'
+</pre>
+<p>You might want to distribute it as <tt>facter.sh</tt> or similar via Puppet.  The directory <tt>/var/puppet/lib/facter</tt> and the plugins will be created on each host by enabling <i>pluginsync</i>.  To do this edit <tt>puppet.conf</tt> and restart <tt>puppetd</tt> on each host.  Again, you'll likely want to maintain the <tt>puppet.conf</tt> file via Puppet.
+</p>
+<pre>[puppetd]
+
+       pluginsync = true
+       factpath = $vardir/lib/facter
+</pre>
+<p>The <tt>[main]</tt> section  is fine too.
+</p>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://demurgatroid.net/wiki/index.php?title=Puppet&amp;action=edit&amp;section=17" title="Edit section: section">edit</a>]</div><a name="section"></a><h1>section</h1>
+<dl><dt> node configuration
+</dt></dl>
+<pre># /etc/puppet/manifests/nodes.pp
+node 'host1.example.com' {
+       include sudo
+}
+</pre>
+<ul><li> Note: You must have the file you want to distribute in either <tt>/etc/puppet/modules/sudo/files/sudoers</tt> or if using a template, <tt>/etc/puppet/modules/sudo/templates/sudoers</tt>
+</li></ul>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://demurgatroid.net/wiki/index.php?title=Puppet&amp;action=edit&amp;section=18" title="Edit section: Tidy (Delete) Files">edit</a>]</div><a name="Tidy_.28Delete.29_Files"></a><h2>Tidy (Delete) Files</h2>
+<p>This is an example of the 'tidy' type used in a class that can be included in a node
+</p>
+<pre># /etc/puppet/manifests/classes/tidy_cluster1.pp
+class tidy_cluster1 {
+tidy { "/home/jamie/tidytestfile":
+       age    =&gt; 1w,
+       }
+}
+</pre>
+<pre># /etc/puppet/manifests/nodes.pp
+node 'host1.example.com' {
+       include tidy_cluster1
+}
+</pre>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://demurgatroid.net/wiki/index.php?title=Puppet&amp;action=edit&amp;section=19" title="Edit section: Change Client Poll Interval">edit</a>]</div><a name="Change_Client_Poll_Interval"></a><h2>Change Client Poll Interval</h2>
+<p>On the client, edit <tt>/etc/puppet/puppet.conf</tt> and edit (or add if it's not there) this line in the <tt>[main]</tt> section of the file
+</p>
+<pre># Poll Puppetmaster ever 300 seconds
+runinterval = 300
+</pre>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://demurgatroid.net/wiki/index.php?title=Puppet&amp;action=edit&amp;section=20" title="Edit section: Directory Structure">edit</a>]</div><a name="Directory_Structure"></a><h1>Directory Structure</h1>
+<dl><dt> <tt>/etc/puppet</tt></dt><dd> main Puppetmaster directory
+</dd></dl>
+<dl><dt> <tt>/etc/puppet/manifests/</tt></dt><dd> Contains the main <tt>site.pp</tt> manifest, as well as <tt>nodes.pp</tt> which defines each host
+</dd></dl>
+<dl><dt> <tt>/etc/puppet/manifests/classes/</tt></dt><dd> Classes defined in this directory are imported into <tt>site.pp</tt>
+</dd></dl>
+<dl><dt> <tt>/etc/puppet/modules/</tt></dt><dd> Contains all modules
+</dd></dl>
+<p><br>
+</p>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://demurgatroid.net/wiki/index.php?title=Puppet&amp;action=edit&amp;section=21" title="Edit section: Note">edit</a>]</div><a name="Note"></a><h1>Note</h1>
+<ul><li> Default Puppet port is 8140
+</li><li> Puppet client checks the puppetmaster every 30 minutes, you can restart <tt>puppetd</tt> to effect changes on that node immediately.
+</li><li> If you specify any nodes in your site.pp, you must specify all nodes in site.pp
+</li><li> Puppet syntax and documentation generally uses the term "node", I will often use "node" and "host" interchangeably
+</li></ul>
+<p><br>
+</p>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://demurgatroid.net/wiki/index.php?title=Puppet&amp;action=edit&amp;section=22" title="Edit section: Troubleshooting">edit</a>]</div><a name="Troubleshooting"></a><h1>Troubleshooting</h1>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://demurgatroid.net/wiki/index.php?title=Puppet&amp;action=edit&amp;section=23" title="Edit section: General">edit</a>]</div><a name="General"></a><h2>General</h2>
+<p><b>Ensure the time is synchronized across hosts</b>
+</p><p>If date &amp; time are not synchronized, certificate errors are likely.
+</p>
+<pre>(err): Could not retrieve catalog from remote server: certificate verify failed
+</pre>
+<p>To resolve, follow the steps to fix <a href="http://demurgatroid.net/wiki/index.php?title=Puppet#SSL_certificate_problems" title="Puppet">common SSL certificate problems</a>
+</p><p><br>
+</p><p><b>Ensure ownership and permissions are correct</b>
+</p><p>I don't know if these are the ideal permissions, but they are 
+known to work.  I set group ownership and permissions this way to enable
+ non-root rsyncing of modules.
+</p>
+<dl><dt> Puppetmaster (running as user 'puppet')
+</dt></dl>
+<pre>find /etc/puppet -type d -exec chmod 775 '{}' \;
+find /etc/puppet -type f -exec chmod 664 '{}' \;
+chown -R puppet:puppet /etc/puppet
+chown root:root /etc/puppet/ssl 
+# chown root:root /etc/puppet/puppet.conf # needed?
+</pre>
+<p><br>
+</p>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://demurgatroid.net/wiki/index.php?title=Puppet&amp;action=edit&amp;section=24" title="Edit section: SSL Certificate Problems">edit</a>]</div><a name="SSL_Certificate_Problems"></a><h2>SSL Certificate Problems</h2>
+<p>Many certificate problems can be solved with the same few steps.
+</p>
+<dl><dt> On the server
+</dt></dl>
+<pre>puppetca --clean host1.example.com
+</pre>
+<p><br>
+</p>
+<dl><dt> On the client
+</dt></dl>
+<p>1) Stop Puppet
+</p><p>2) Delete the entire <tt>/etc/puppet/ssl/</tt> directory
+</p><p>3) Restart Puppet
+</p>
+<pre>puppetd -t
+</pre>
+<p><br>
+When certificate errors occur on a host that is both a puppetmaster and 
+client it can be much more complicated.  I fixed it before but don't 
+know exactly what did it.  Assuming a puppetmaster named 
+puppet.example.com I something like this...
+</p>
+<ul><li> stop puppetd (if it's even running)
+</li><li> puppetca --clean puppet.example.com
+</li><li> stop puppetmasterd
+</li><li> restart puppetmasterd
+</li><li> puppetca --generate
+</li><li> restart reverse proxy server if you're using one
+</li></ul>
+<p><br>
+</p>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://demurgatroid.net/wiki/index.php?title=Puppet&amp;action=edit&amp;section=25" title="Edit section: Specific Errors">edit</a>]</div><a name="Specific_Errors"></a><h2>Specific Errors</h2>
+<p><b>ERROR</b>
+</p>
+<pre>DEPRECATION NOTICE: Files found in modules without specifying 'modules' in file path will be deprecated in the next major release.
+Please fix module 'somemodule' when no 0.24.x clients are present
+</pre>
+<p>This error means that when specifiying the source of the file to 
+distribute, you have to put the word 'modules' in your path (this isn't 
+really a path but not sure what else to call it, the actual path would 
+be <tt>/etc/puppet/modules/somemodule/files/somefile</tt>)
+</p>
+<pre>source  =&gt; "puppet:///modules/somemodule/somefile",
+</pre>
+<ul><li> Note: For older versions of puppet, if you put "modules" in the path, you may get an error like this:
+</li></ul>
+<pre>Could not call: Mounts without paths are not usable
+</pre>
+<p><br>
+</p>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://demurgatroid.net/wiki/index.php?title=Puppet&amp;action=edit&amp;section=26" title="Edit section: Facter Incorrect processorcount Fact">edit</a>]</div><a name="Facter_Incorrect_processorcount_Fact"></a><h3>Facter Incorrect <tt>processorcount</tt> Fact</h3>
+<p>Facter will sometimes show an incorrect value for the <tt>processorcount</tt>
+ Fact.  This is due to the difficulties in determining the number of 
+CPUs, and whether they are real CPUs, real cores, or virtual CPUs via <tt>/proc/cpuinfo</tt>.  It's not an issue with Facter as much as it is an issue in general.
+</p>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://demurgatroid.net/wiki/index.php?title=Puppet&amp;action=edit&amp;section=27" title="Edit section: Links">edit</a>]</div><a name="Links"></a><h1>Links</h1>
+<p><a href="http://groups.google.com/group/puppet-users" class="external free" title="http://groups.google.com/group/puppet-users" rel="nofollow">http://groups.google.com/group/puppet-users</a>
+</p><p><a href="http://pvalentino.blogspot.com/2007/11/on-puppet-server-install-facter-1.html" class="external free" title="http://pvalentino.blogspot.com/2007/11/on-puppet-server-install-facter-1.html" rel="nofollow">http://pvalentino.blogspot.com/2007/11/on-puppet-server-install-facter-1.html</a>
+</p><p><a href="http://people.redhat.com/dlutter/puppet-app.html" class="external free" title="http://people.redhat.com/dlutter/puppet-app.html" rel="nofollow">http://people.redhat.com/dlutter/puppet-app.html</a>
+</p>
+<!-- Saved in parser cache with key demurgatroid_wiki:pcache:idhash:1800-0!1!0!0!!en!2 and timestamp 20110311074449 -->
+<div class="printfooter">
+Retrieved from "<a href="http://demurgatroid.net/wiki/index.php?title=Puppet">http://demurgatroid.net/wiki/index.php?title=Puppet</a>"</div>
+						<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a title="View the content page [alt-c]" accesskey="c" href="http://demurgatroid.net/wiki/index.php?title=Puppet">Article</a></li>
+				 <li id="ca-talk" class="new"><a title="Discussion about the content page [alt-t]" accesskey="t" href="http://demurgatroid.net/wiki/index.php?title=Talk:Puppet&amp;action=edit">Discussion</a></li>
+				 <li id="ca-edit"><a title="You can edit this page. Please use the preview button before saving. [alt-e]" accesskey="e" href="http://demurgatroid.net/wiki/index.php?title=Puppet&amp;action=edit">Edit</a></li>
+				 <li id="ca-history"><a title="Past versions of this page. [alt-h]" accesskey="h" href="http://demurgatroid.net/wiki/index.php?title=Puppet&amp;action=history">History</a></li>
+		</ul>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a title="You are encouraged to log in, it is not mandatory however. [alt-o]" accesskey="o" href="http://demurgatroid.net/wiki/index.php?title=Special:Userlogin&amp;returnto=Puppet">Log in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div title="Main Page" class="portlet" id="p-logo">
+		<a style="background-image: url(&quot;/wiki/skins/common/images/demurgatroid-wiki.png&quot;);" href="http://demurgatroid.net/wiki/index.php?title=Main_Page" title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class="portlet" id="p-Navigation">
+		<h5>Navigation</h5>
+		<div class="pBody">
+			<ul>
+				<li id="n-Main-Page"><a href="http://demurgatroid.net/wiki/index.php?title=Main_Page">Main Page</a></li>
+				<li id="n--Quick-Reference"><a href="http://demurgatroid.net/wiki/index.php?title=Quick_Reference"> Quick Reference</a></li>
+				<li id="n--Glossary"><a href="http://demurgatroid.net/wiki/index.php?title=Glossary"> Glossary</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/index.php?title=Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" accesskey="f" type="text">
+				<input name="go" class="searchButton" id="searchGoButton" value="Go" type="submit">&nbsp;
+				<input name="fulltext" class="searchButton" value="Search" type="submit">
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a title="List of all wiki pages that link here [alt-j]" accesskey="j" href="http://demurgatroid.net/wiki/index.php?title=Special:Whatlinkshere/Puppet">What links here</a></li>
+				<li id="t-recentchangeslinked"><a title="Recent changes in pages linked from this page [alt-k]" accesskey="k" href="http://demurgatroid.net/wiki/index.php?title=Special:Recentchangeslinked/Puppet">Related changes</a></li>
+<li id="t-upload"><a title="Upload images or media files [alt-u]" accesskey="u" href="http://demurgatroid.net/wiki/index.php?title=Special:Upload">Upload file</a></li>
+<li id="t-specialpages"><a title="List of all special pages [alt-q]" accesskey="q" href="http://demurgatroid.net/wiki/index.php?title=Special:Specialpages">Special pages</a></li>
+				<li id="t-print"><a href="http://demurgatroid.net/wiki/index.php?title=Puppet&amp;printable=yes">Printable version</a></li>				<li id="t-permalink"><a href="http://demurgatroid.net/wiki/index.php?title=Puppet&amp;oldid=3100">Permanent link</a></li>			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="index.php_files/poweredby_mediawiki_88x31.png" alt="MediaWiki"></a></div>
+				<div id="f-copyrightico"><a href="http://www.gnu.org/copyleft/fdl.html"><img src="index.php_files/gnu-fdl.png" alt="GNU Free Documentation License 1.2"></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 03:40, 12 July 2010.</li>
+				<li id="viewcount">This page has been accessed 2,962 times.</li>
+				<li id="copyright">Content is available under <a href="http://www.gnu.org/copyleft/fdl.html" class="external " title="http://www.gnu.org/copyleft/fdl.html" rel="nofollow">GNU Free Documentation License 1.2</a>.</li>
+				<li id="privacy"><a href="http://demurgatroid.net/wiki/index.php?title=Demurgatroid.net_Wiki:Privacy_policy" title="Demurgatroid.net Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="http://demurgatroid.net/wiki/index.php?title=Demurgatroid.net_Wiki:About" title="Demurgatroid.net Wiki:About">About Demurgatroid.net Wiki</a></li>
+				<li id="disclaimer"><a href="http://demurgatroid.net/wiki/index.php?title=Demurgatroid.net_Wiki:General_disclaimer" title="Demurgatroid.net Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by web01.demurgatroid.net in 0.20 secs. -->
+</body></html>
